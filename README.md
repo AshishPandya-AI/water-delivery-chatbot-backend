@@ -107,7 +107,7 @@ POST http://127.0.0.1:8000/track_order
 ## 💾 MongoDB Atlas
 
 * Database: `todo_db`
-* Collection: `todo_collection`
+* Collection: `Order_collection`
 * Stores each order with fields:
 
   * product, capacity, quantity
