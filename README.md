@@ -31,6 +31,7 @@ Welcome to the official repository for the **Gaytri-Minral Water Delivery Chatbo
 * 📲 Collects user details (first name, last name, phone)
 * 🧠 Dialogflow Webhooks connected to FastAPI backend
 * 🔄 Real-time data stored in MongoDB Atlas
+* 🔧 RESTful API endpoints for tracking, updating, and canceling orders
 
 ---
 
@@ -124,12 +125,62 @@ POST http://127.0.0.1:8000/track_order
 
 ---
 
-## 🌱 Future Improvements
+## 🚀 Features
 
-* Integrate payment confirmation
-* Admin dashboard for managing orders
-* Analytics dashboard for business insights
-* Integration with SMS for notifications
+* **Order Tracking**: Customers can track their order status by providing their order number and last name.
+* **Order Placement**: Customers can place new orders by providing details such as name, phone number, items, quantity, and capacity.
+* **Order Cancellation**: Customers can cancel their orders by verifying their order number and last name.
+* **CRUD Operations**: RESTful API endpoints for managing orders (GET, PUT, DELETE).
+
+---
+
+## 📬 API Endpoints
+
+### Webhook
+
+* **POST** `/webhook`: Handles Dialogflow webhook requests.
+
+### Order Management
+
+* **GET** `/orders/{order_number}`: Fetch an order by its order number.
+* **PUT** `/orders/{order_number}`: Update an order by its order number.
+* **DELETE** `/orders/{order_number}`: Delete an order by its order number.
+
+---
+
+## 🎯 Example Dialogflow Intents
+
+1. **track.order\_status**: Verify order status by providing the order number.
+2. **Track.order.validation**: Validate the order using the last name.
+3. **new\.order.user.phone\_number**: Place a new order by providing user details.
+4. **cancel.order.confirm**: Cancel an order by verifying the order number and last name.
+
+---
+
+## 🛠️ Dependencies
+
+* **FastAPI**: High-performance web framework for building APIs.
+* **MongoDB**: NoSQL database for storing order details.
+* **Uvicorn**: ASGI server for running the FastAPI app.
+
+Install all dependencies using the `requirements.txt` file.
+
+---
+
+## 🧑‍💻 Development
+
+To contribute to this project:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Commit your changes and push them to your fork.
+4. Submit a pull request.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
 
 ---
 
@@ -137,9 +188,3 @@ POST http://127.0.0.1:8000/track_order
 
 * Built with ❤️ by the creator of this repository
 * Powered by FastAPI, MongoDB & Dialogflow
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
