@@ -28,7 +28,7 @@ Welcome to the official repository for the **Gaytri-Minral Water Delivery Chatbo
 * 📦 New order placement with dynamic item/capacity selection
 * 🔍 Track orders by 6-digit Order ID
 * ❌ Cancel orders by ID
-* 📲 Collects user details (first name, last name, email, phone)
+* 📲 Collects user details (first name, last name, phone)
 * 🧠 Dialogflow Webhooks connected to FastAPI backend
 * 🔄 Real-time data stored in MongoDB Atlas
 
@@ -37,17 +37,29 @@ Welcome to the official repository for the **Gaytri-Minral Water Delivery Chatbo
 ## 📁 Folder Structure
 
 ```
-├── main.py                   # FastAPI main file
+├── main.py                           # FastAPI main file
 ├── config/
-│   └── database.py           # MongoDB Atlas setup
+│   ├── __pycache__/
+│   ├── database.py                   # MongoDB Atlas connection
+│   └── setup_database.py             # (Optional) Setup script
 ├── routes/
-│   └── route.py              # All API endpoints (track, cancel, store)
+│   ├── __pycache__/
+│   ├── __init__.py
+│   ├── code.txt                      # Miscellaneous or reference code
+│   ├── index.html                    # Frontend page (if used)
+│   └── route.py                      # All API endpoints (track, cancel, store)
 ├── models/
-│   └── todos.py              # Pydantic model for validation
+│   ├── Order_Details_Added.py       # Models for storing order-related info
+│   └── orders.py                    # Additional model definitions
 ├── schema/
-│   └── schemas.py            # Serializer for MongoDB documents
-├── .env                      # (Optional) Secure MongoDB credentials
-├── README.md                 # This file!
+│   └── schemas.py                   # Serializers for MongoDB documents
+├── env/                              # Python virtual environment folder
+│   ├── Scripts/
+│   └── Lib/
+├── ngrok-v3-stable-windows-amd64/
+│   └── ngrok.exe                     # For tunneling localhost to public URL
+├── .gitignore
+├── README.md                         # This file!
 ```
 
 ---
@@ -60,7 +72,7 @@ Welcome to the official repository for the **Gaytri-Minral Water Delivery Chatbo
    * New Order → Item → Capacity → Quantity → Confirmation
    * Track Order → Enter 6-digit Order ID
    * Cancel Order → Enter Order ID
-   * Collect User Info → First name, Last name, Email, Phone
+   * Collect User Info → First name, Last name, Phone
 
 2. **Webhook URL:**
 
@@ -98,7 +110,7 @@ POST http://127.0.0.1:8000/track_order
 * Stores each order with fields:
 
   * product, capacity, quantity
-  * first\_name, last\_name, email, phone
+  * first\_name, last\_name, phone
   * order\_id (6-digit)
 
 > Make sure the MongoDB URI is properly formatted and credentials are URL-encoded using `urllib.parse.quote_plus`
@@ -117,14 +129,14 @@ POST http://127.0.0.1:8000/track_order
 * Integrate payment confirmation
 * Admin dashboard for managing orders
 * Analytics dashboard for business insights
-* Integration with SMS/Email for notifications
+* Integration with SMS for notifications
 
 ---
 
 ## 🙌 Credits
 
-* Built with ❤️ by \[DhruvilKumar Patel]
-* Guided and structured with FastAPI, MongoDB & Dialogflow
+* Built with ❤️ by the creator of this repository
+* Powered by FastAPI, MongoDB & Dialogflow
 
 ---
 
